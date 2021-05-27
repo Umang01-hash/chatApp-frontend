@@ -3,21 +3,20 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-streams',
-  templateUrl: './streams.component.html',
-  styleUrls: ['./streams.component.css']
+  selector: 'app-toolbar',
+  templateUrl: './toolbar.component.html',
+  styleUrls: ['./toolbar.component.css']
 })
-export class StreamsComponent implements OnInit {
+export class ToolbarComponent implements OnInit {
 
-  token: any;
 
   constructor(private tokenService : TokenService, private router : Router) { }
 
   ngOnInit(): void {
-    this.token=this.tokenService.GetToken();
-    console.log(this.token);
   }
-
-
+  logout(){
+    this.tokenService.DeleteToken();
+    this.router.navigate([''])
+}
 
 }
