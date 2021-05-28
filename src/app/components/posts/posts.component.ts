@@ -10,7 +10,7 @@ import io from 'socket.io-client';
 })
 export class PostsComponent implements OnInit {
   socket: any;
-  posts=[];
+  posts: any=[];
 
   constructor(private postService:PostService) {
     this.socket=io('http://localhost:3000');
