@@ -10,7 +10,7 @@ import io from 'socket.io-client';
 })
 export class PostsComponent implements OnInit {
   socket: any;
-  posts: any=[];
+  posts!: any[];
 
   constructor(private postService:PostService) {
     this.socket=io('http://localhost:3000');
@@ -20,7 +20,7 @@ export class PostsComponent implements OnInit {
     this.AllPosts();
 
     this.socket.on('refreshPage',(data: any) => {
-      this.posts=data.posts;
+      this.AllPosts();
     })
   }
 
