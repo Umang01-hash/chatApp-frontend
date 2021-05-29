@@ -5,19 +5,22 @@ import { TokenService } from 'src/app/services/token.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent implements OnInit {
-  user:any;
+  user: any;
 
-  constructor(private tokenService : TokenService, private router : Router) { }
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   ngOnInit(): void {
-    this.user=this.tokenService.GetPayload();
+    this.user = this.tokenService.GetPayload();
   }
-  logout(){
+  logout() {
     this.tokenService.DeleteToken();
-    this.router.navigate([''])
-}
+    this.router.navigate(['']);
+  }
 
+  GoToHome() {
+    this.router.navigate(['streams']);
+  }
 }
