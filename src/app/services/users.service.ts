@@ -27,5 +27,9 @@ export class UsersService {
     return this.http.post(`${BASEURL}/follow-user`, {userFollowed});
   }
 
+  UnFollowUser(userFollowed: any): Observable<any> {
+    return this.http.post(`${BASEURL}/unfollow-user`, {userFollowed});
+  }
+
 
 }
