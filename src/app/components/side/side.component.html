@@ -32,13 +32,15 @@
       </div>
     </a>
   </li>
-  <li class="collection-item">
+  <li class="collection-item"  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+  <a [routerLink]="['/people']">
     <div>
       People
       <a href="#!" class="secondary-content"
         ><i class="material-icons">people</i></a
       >
     </div>
+  </a>
   </li>
   <li class="collection-item">
     <div>
