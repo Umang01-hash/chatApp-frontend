@@ -41,6 +41,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   DeleteNotification(data: any) {
+<<<<<<< HEAD
     console.log(data);
   }
 
@@ -52,4 +53,17 @@ export class NotificationsComponent implements OnInit {
       (err) => console.log(err)
     );
   }
+=======
+    this.usersService.MarkNotification(data._id, true).subscribe( value => {
+      this.socket.emit('refresh', {});
+    })
+  }
+
+  MarkNotification(data: any) {
+    this.usersService.MarkNotification(data._id).subscribe( value => {
+      this.socket.emit('refresh', {});
+    })
+  }
+
+>>>>>>> 8f8d1cdab204bacb53bc18d980b81b3e8fb7a35d
 }

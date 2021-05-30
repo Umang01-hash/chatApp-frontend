@@ -122,3 +122,7 @@ nav {
   li.dropdown-button {
     margin-left: 20px !important;
   }
+
+  .collection-item {
+    padding: 10px;
+  }

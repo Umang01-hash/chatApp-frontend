@@ -14,12 +14,16 @@
             alt="">
           <span class="title">{{ data.message }}</span>
           <a class="secondary-content">
-            <i  class="material-icons">brightness_1</i>
-            <i class="material-icons">panorama_fish_eye</i>
+            <i *ngIf="!data.read"  class="material-icons">brightness_1</i>
+            <i *ngIf="data.read" class="material-icons">panorama_fish_eye</i>
           </a>
           <p class="time">{{ TimeFromNow(data.created) }}</p>
           <div>
+<<<<<<< HEAD
             <i class="material-icons" (click)="MarkNotification(data)">
+=======
+            <i class="material-icons" (click)="MarkNotification(data)" [ngClass] = "data.read ? 'disabled' : 'notDisabled'">
+>>>>>>> 8f8d1cdab204bacb53bc18d980b81b3e8fb7a35d
               check
             </i>
             <i class="material-icons" (click)="DeleteNotification(data)">
