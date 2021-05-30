@@ -31,5 +31,16 @@ export class UsersService {
     return this.http.post(`${BASEURL}/unfollow-user`, {userFollowed});
   }
 
+  MarkNotification(id: any, deleteValue?: any): Observable<any> {
+    return this.http.post(`${BASEURL}/mark/${id}`, {
+      id,
+      deleteValue
+    });
+  }
 
+  MarAllAsRead(): Observable<any> {
+    return this.http.post(`${BASEURL}/mark-all`, {
+      all: true
+    });
+  }
 }

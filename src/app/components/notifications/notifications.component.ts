@@ -39,4 +39,16 @@ export class NotificationsComponent implements OnInit {
     }, err => console.log(err));
   }
 
+  DeleteNotification(data: any) {
+    this.usersService.MarkNotification(data._id, true).subscribe( value => {
+      this.socket.emit('refresh', {});
+    })
+  }
+
+  MarkNotification(data: any) {
+    this.usersService.MarkNotification(data._id).subscribe( value => {
+      this.socket.emit('refresh', {});
+    })
+  }
+
 }
