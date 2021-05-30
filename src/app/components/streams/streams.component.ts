@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-streams',
@@ -10,14 +11,28 @@ import { TokenService } from 'src/app/services/token.service';
 export class StreamsComponent implements OnInit {
 
   token: any;
+  streamsTab =  false;
+  topStreamsTab= false;
 
   constructor(private tokenService : TokenService, private router : Router) { }
 
   ngOnInit(): void {
+    this.streamsTab=true;
     this.token=this.tokenService.GetPayload();
-    console.log(this.token);
+    const tabs= document.querySelector('.tabs')!;
+    M.Tabs.init(tabs , {});
   }
 
+  ChangeTabs(value: any){
+    if(value=== 'streams'){
+      this.streamsTab=true;
+      this.topStreamsTab=false;
+    }
 
+    if(value=== 'top'){
+      this.streamsTab=false;
+      this.topStreamsTab=true;
+    }
+  }
 
 }
