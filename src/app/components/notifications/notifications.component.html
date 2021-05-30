@@ -19,10 +19,10 @@
           </a>
           <p class="time">{{ TimeFromNow(data.created) }}</p>
           <div>
-            <i class="material-icons" >
+            <i class="material-icons" (click)="MarkNotification(data)">
               check
             </i>
-            <i class="material-icons" >
+            <i class="material-icons" (click)="DeleteNotification(data)">
               delete_forever
             </i>
           </div>
