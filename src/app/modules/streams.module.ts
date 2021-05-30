@@ -14,11 +14,13 @@ import { RouterModule } from '@angular/router';
 import { PeopleComponent } from '../components/people/people.component';
 import { UsersService } from '../services/users.service';
 import { FollowingComponent } from '../components/following/following.component';
+import { FollowersComponent } from '../components/followers/followers.component';
+import { NotificationsComponent } from '../components/notifications/notifications.component';
 
 
 
 @NgModule({
-  declarations: [ StreamsComponent, ToolbarComponent, SideComponent, PostFormComponent, PostsComponent, CommentsComponent, PeopleComponent, FollowingComponent],
+  declarations: [ StreamsComponent, ToolbarComponent, SideComponent, PostFormComponent, PostsComponent, CommentsComponent, PeopleComponent, FollowingComponent, FollowersComponent, NotificationsComponent],
   imports: [
     CommonModule,
     FormsModule,
