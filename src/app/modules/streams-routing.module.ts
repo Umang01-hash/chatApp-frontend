@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes,RouterModule  } from '@angular/router';
+import { ChatComponent } from '../components/chat/chat.component';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { FollowersComponent } from '../components/followers/followers.component';
 import { FollowingComponent } from '../components/following/following.component';
@@ -38,6 +39,10 @@ const routes: Routes=[
   {
     path: 'notifications',
     component: NotificationsComponent,
+    canActivate: [AuthGuard]
+  },{
+    path : 'chat/:name',
+    component: ChatComponent,
     canActivate: [AuthGuard]
   }
 ]
