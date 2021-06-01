@@ -22,6 +22,7 @@ import { MessageComponent } from '../components/message/message.component';
 import { MessageService } from '../services/message.service';
 import { NgxAutoScrollModule } from 'ngx-auto-scroll';
 
+
 @NgModule({
   declarations: [
     StreamsComponent,
@@ -44,7 +45,9 @@ import { NgxAutoScrollModule } from 'ngx-auto-scroll';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    NgxAutoScrollModule
+    NgxAutoScrollModule,
+
+
   ],
   exports: [StreamsComponent, ToolbarComponent],
   providers: [TokenService, PostService, UsersService, MessageService],
