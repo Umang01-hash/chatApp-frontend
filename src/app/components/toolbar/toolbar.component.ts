@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output , EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import * as M from 'materialize-css';
@@ -8,12 +8,14 @@ import io from 'socket.io-client';
 import * as _ from 'lodash';
 import { MessageService } from 'src/app/services/message.service';
 
+
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css'],
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent implements OnInit , AfterViewInit {
+  @Output() onlineUsers = new EventEmitter();
   user: any;
   notifications: any = [];
   socket: any;
@@ -48,9 +50,17 @@ export class ToolbarComponent implements OnInit {
       coverTrigger: false
     });
 
+    this.socket.emit('online' , { room : 'global' , user : this.user.username });
+
     this.GetUser();
     this.socket.on('refreshPage', () => {
       this.GetUser();
+    });
+  }
+
+  ngAfterViewInit() {
+    this.socket.on('usersOnline', (data: any) => {
+      this.onlineUsers.emit(data);
     });
   }
 
@@ -96,6 +106,13 @@ export class ToolbarComponent implements OnInit {
   markAll() {
     this.usersService.MarAllAsRead().subscribe((data) => {
       this.socket.emit('refresh', {});
+    });
+  }
+
+  MarkAllMessages(){
+    this.msgService.MarkAllMessages().subscribe(data => {
+      this.socket.emit('refresh', {});
+      this.msgNumber=0;
     });
   }
 
