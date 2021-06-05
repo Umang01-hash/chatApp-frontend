@@ -4,6 +4,7 @@ import { ChatComponent } from '../components/chat/chat.component';
 import { CommentsComponent } from '../components/comments/comments.component';
 import { FollowersComponent } from '../components/followers/followers.component';
 import { FollowingComponent } from '../components/following/following.component';
+import { ImagesComponent } from '../components/images/images.component';
 import { NotificationsComponent } from '../components/notifications/notifications.component';
 import { PeopleComponent } from '../components/people/people.component';
 import { StreamsComponent } from '../components/streams/streams.component';
@@ -44,6 +45,13 @@ const routes: Routes=[
     path : 'chat/:name',
     component: ChatComponent,
     canActivate: [AuthGuard]
+  },{
+    path : 'images/:name',
+    component: ImagesComponent,
+    canActivate: [AuthGuard]
+  },{
+    path: '**',
+    redirectTo :'streams'
   }
 ]
 

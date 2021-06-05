@@ -65,10 +65,10 @@ export class MessageComponent implements OnInit , AfterViewInit ,OnChanges {
       const result = _.indexOf(changes.users.currentValue, this.receiver);
       if (result > -1) {
         this.isOnline = true;
-
+        (title as HTMLElement).style.marginTop = '10px';
       } else {
         this.isOnline = false;
-
+        (title as HTMLElement).style.marginTop = '20px';
       }
     }
   }
