@@ -43,4 +43,11 @@ export class UsersService {
       all: true
     });
   }
+
+  AddImage(image: any) : Observable<any>{
+    return this.http.post(`${BASEURL}/upload-image`, {
+
+      image
+    });
+  }
 }
